@@ -1,54 +1,38 @@
-# React + TypeScript + Vite
+# react-task-template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+프론트엔드 과제용 React 템플릿 프로젝트입니다.  
+React + TypeScript + Vite 기반으로 구성되어 있으며, TailwindCSS, Zustand, React Query 등의 실무형 스택을 포함합니다.
 
-Currently, two official plugins are available:
+## 🚀 기술 스택
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| 범주             | 사용 기술                 |
+| ---------------- | ------------------------- |
+| 기본 세팅        | React + TypeScript + Vite |
+| 스타일링         | TailwindCSS               |
+| 상태관리         | Zustand                   |
+| 데이터 패칭/캐싱 | React Query               |
+| HTTP 통신        | Axios                     |
+| 라우팅           | React Router              |
+| 배포             | Vercel                    |
 
-## Expanding the ESLint configuration
+## 📁 폴더 구조
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+┣ assets/     # 정적 리소스
+┣ components/ # 공통 UI 컴포넌트
+┣ features/   # 도메인별 기능 모듈 (ex. community, product)
+┣ hooks/      # 커스텀 훅
+┣ services/   # API 요청 및 비즈니스 로직
+┣ stores/     # 전역 상태 관리
+┣ types/      # 전역 타입 정의
+┣ App.tsx     # 앱 전체 구조 설정
+┗ main.tsx    # 애플리케이션 진입점
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠 사용법
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
+npm run dev
 ```
